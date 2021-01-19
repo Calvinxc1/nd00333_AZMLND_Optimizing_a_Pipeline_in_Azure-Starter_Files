@@ -13,7 +13,7 @@ The best performing model, by accuracy rating, was a VotingEnsemble model, gener
 ## Scikit-learn Pipeline
 The HyperDrive processes included hyperparameter tuning. HyperDrive performed uniform sampling and grid search sampling on the model hyperparameters. These were chosen to strike a balance between proper space exploration and calculation time. Additionally, early stopping was specified with the BanditPolicy being selected to not too dramatically overshoot the best-fit iteration.
 
-**What are the benefits of the early stopping policy you chose?**
+Generally an early-stopping policy is good to have as to not spend too much time running iterations on the ML training that don't actually contribute to the training effectiveness. BanditPolicy makes sure that current training is within a certain threshold of the best run, ensuring that training doesn't drift too far away from the best run.
 
 ## AutoML
 The AutoML process, however, was black-boxed, generating an ensemble of 9 models, with weights ranging between 0.06 and 0.2.
@@ -22,4 +22,4 @@ The AutoML process, however, was black-boxed, generating an ensemble of 9 models
 The resulting models varied dramatically, which makes sense, given that AutoML checks across a wide range of models, whereas HyperDrive only iterates different hyperparameters across a single model. The end result is that the AutoML model is superior in the accuracy metric.
 
 ## Future work
-A blending of the two techniques would give a stronger assessment of the 'true' optimal model; AutoML may have found the most optimal architecture, but HyperDrive could then pick up the slack with additional tuning to identify the best overall hyperparameters for this optimal model.
+A blending of the two techniques would give a stronger assessment of the 'true' optimal model; AutoML may have found the most optimal architecture, but HyperDrive could then pick up the slack with additional tuning to identify the best overall hyperparameters for this optimal model. This would leverage a 'best of both worlds' of both approaches.

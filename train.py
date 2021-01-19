@@ -69,8 +69,7 @@ split = 0.8
 
 x, y = clean_data(ds)
 train_mask = x.index.isin(np.random.choice(x.index, size=int(x.index.size * split)))
-x_train, y_train = x.loc[train_mask], y.loc[train_mask]
-x_test, y_test  =x.loc[~train_mask], y.loc[~train_mask]
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
 # -
 
 # TODO: Split data into train and test sets.
