@@ -20,7 +20,7 @@ The pipeline included hyperparameter tuning on the maximum iterations, as well a
 Additionally, early stopping was specified with the BanditPolicy being selected to not too dramatically overshoot the best-fit iteration. Generally an early-stopping policy is good to have as to not spend too much time running iterations on the ML training that don't actually contribute to the training effectiveness. BanditPolicy makes sure that current training is within a certain threshold of the best run, ensuring that training doesn't drift too far away from the best run. The policy also does not kick in until a specified number of iterations have passed.
 
 ## AutoML
-The AutoML process, however, was black-boxed, generating an ensemble of 9 models, with weights ranging between 0.06 and 0.2. The ensemble aggregates the results of several models to come to a stronger result than any single model could alone.
+The AutoML process, however, was black-boxed, generating an ensemble of 9 models, with weights ranging between 0.06 and 0.2. These weights determine how influential that particular model is on the final verdict. The ensemble aggregates the results of several models to come to a stronger result than any single model could alone.
 
 ## Pipeline comparison
 The resulting models varied dramatically, which makes sense, given that AutoML checks across a wide range of models, whereas HyperDrive only iterates different hyperparameters across a single model. The end result is that the AutoML model is superior in the accuracy metric.
