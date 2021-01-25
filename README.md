@@ -22,6 +22,8 @@ Additionally, early stopping was specified with the BanditPolicy being selected 
 ## AutoML
 The AutoML process, however, was black-boxed, generating an ensemble of 9 models, with weights ranging between 0.06 and 0.2. These weights determine how influential that particular model is on the final verdict. The ensemble aggregates the results of several models to come to a stronger result than any single model could alone.
 
+The AutoML process was set to solve a classification algorithm, and assess each variant on its accuracy, with the best accuracy rising to the top. Additionally 2-fold cross validation was used on the models.
+
 ## Pipeline comparison
 The resulting models varied dramatically, which makes sense, given that AutoML checks across a wide range of models, whereas HyperDrive only iterates different hyperparameters across a single model. The end result is that the AutoML model is superior in the accuracy metric.
 
