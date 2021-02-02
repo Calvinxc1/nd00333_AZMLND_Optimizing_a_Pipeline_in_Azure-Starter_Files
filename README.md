@@ -24,6 +24,8 @@ The AutoML process, however, was black-boxed, generating an ensemble of 9 models
 
 The AutoML process was set to solve a classification algorithm, and assess each variant on its accuracy, with the best accuracy rising to the top. Additionally 2-fold cross validation was used on the models.
 
+Each model was run for a maximum of 100 iterations, with an l2 penalty, using the `saga` solver.
+
 ## Pipeline comparison
 The resulting models varied dramatically, which makes sense, given that AutoML checks across a wide range of models, whereas HyperDrive only iterates different hyperparameters across a single model. The end result is that the AutoML model is superior in the accuracy metric.
 
